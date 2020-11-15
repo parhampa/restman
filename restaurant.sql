@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2020 at 01:40 AM
+-- Generation Time: Nov 15, 2020 at 03:25 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.20
 
@@ -29,10 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `addone` (
   `id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
   `title` varchar(250) COLLATE utf8_persian_ci NOT NULL,
   `price` decimal(10,0) NOT NULL DEFAULT 0,
   `more_info` text COLLATE utf8_persian_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `addone`
+--
+
+INSERT INTO `addone` (`id`, `pid`, `title`, `price`, `more_info`) VALUES
+(6, 2, 'sad', '213', 'dfdfsd'),
+(7, 2, '132', '213', 'sdsad');
 
 -- --------------------------------------------------------
 
@@ -100,13 +109,6 @@ CREATE TABLE `customers` (
   `hbd_day` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`username`, `pass`, `name`, `family`, `email`, `tel`, `mob`, `address`, `postal_code`, `hbd_year`, `hbd_month`, `hbd_day`) VALUES
-('ali', '1234', 'ali', 'hasani', 'ali@gmail.com', '123456789', '1234568789', 'sadczxczxc', 1235468, 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -116,6 +118,7 @@ INSERT INTO `customers` (`username`, `pass`, `name`, `family`, `email`, `tel`, `
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `rest_id` int(11) NOT NULL,
+  `cat_id` int(11) NOT NULL,
   `name` varchar(200) COLLATE utf8_persian_ci NOT NULL,
   `more_info` text COLLATE utf8_persian_ci DEFAULT NULL,
   `pic1` text COLLATE utf8_persian_ci DEFAULT NULL,
@@ -134,8 +137,8 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `rest_id`, `name`, `more_info`, `pic1`, `pic2`, `pic3`, `keywords`, `size1name`, `size1price`, `size2name`, `size2price`, `size3name`, `size3price`) VALUES
-(1, 1, 'pitza', 'adaskk', '../uploads/37b8a135e3dc2c7a0f3767d696112eb5WhatsApp Image 2020-10-19 at 21.50.07.jpeg', '../uploads/37b8a135e3dc2c7a0f3767d696112eb5WhatsApp Image 2020-10-19 at 21.51.09.jpeg', '../uploads/37b8a135e3dc2c7a0f3767d696112eb5WhatsApp Image 2020-10-19 at 22.00.18.jpeg', 'asdasdasd', '21313', 2312, '213213', 2312, '123123', 213213);
+INSERT INTO `products` (`id`, `rest_id`, `cat_id`, `name`, `more_info`, `pic1`, `pic2`, `pic3`, `keywords`, `size1name`, `size1price`, `size2name`, `size2price`, `size3name`, `size3price`) VALUES
+(2, 1, 2, 'dsf', 'dsf', NULL, NULL, NULL, 'dsf', 'cxvc', 123, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -215,19 +218,19 @@ ALTER TABLE `restaurant_name`
 -- AUTO_INCREMENT for table `addone`
 --
 ALTER TABLE `addone`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `catagory`
 --
 ALTER TABLE `catagory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `restaurant_name`
