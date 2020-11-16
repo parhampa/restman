@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 03:25 AM
+-- Generation Time: Nov 16, 2020 at 01:58 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.20
 
@@ -112,6 +112,46 @@ CREATE TABLE `customers` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `package`
+--
+
+CREATE TABLE `package` (
+  `id` int(11) NOT NULL,
+  `rest_id` int(11) NOT NULL,
+  `pack_name` varchar(500) COLLATE utf8_persian_ci NOT NULL,
+  `offer` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `package`
+--
+
+INSERT INTO `package` (`id`, `rest_id`, `pack_name`, `offer`) VALUES
+(1, 1, 'eere', '10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `package_item`
+--
+
+CREATE TABLE `package_item` (
+  `id` int(11) NOT NULL,
+  `rest_id` int(11) NOT NULL,
+  `pack_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `package_item`
+--
+
+INSERT INTO `package_item` (`id`, `rest_id`, `pack_id`, `product_id`) VALUES
+(1, 1, 1, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -199,6 +239,18 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`username`);
 
 --
+-- Indexes for table `package`
+--
+ALTER TABLE `package`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `package_item`
+--
+ALTER TABLE `package_item`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -225,6 +277,18 @@ ALTER TABLE `addone`
 --
 ALTER TABLE `catagory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `package`
+--
+ALTER TABLE `package`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `package_item`
+--
+ALTER TABLE `package_item`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
