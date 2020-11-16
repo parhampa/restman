@@ -42,6 +42,12 @@
             <a href="products.php?action=show" class="w3-bar-item w3-button w3-padding w3-left-align"><i
                         class="fa fa-bullseye fa-fw"></i> 
                 products</a>
+            <a href="package.php?action=show" class="w3-bar-item w3-button w3-padding w3-left-align"><i
+                        class="fa fa-bullseye fa-fw"></i> 
+                packages</a>
+            <a href="package_item.php?action=show" class="w3-bar-item w3-button w3-padding w3-left-align"><i
+                        class="fa fa-bullseye fa-fw"></i> 
+                package items</a>
         </div>
 
         <b class="w3-button w3-green w3-border" style="width: 100%;" onclick="showsubmenu(3)">customers</b>
